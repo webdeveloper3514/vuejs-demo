@@ -1,0 +1,64 @@
+version: 0.2
+
+env:
+  secrets-manager:
+    SM_SONAR_TOKEN: "arn:aws:secretsmanager:ap-southeast-1:319266915705:secret:SONAR_TOKEN-6MlgDe:SONAR_TOKEN"
+    
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - npm install -g yarn
+      - export SONAR_SCANNER_VERSION=4.7.0.2747
+      - export SONAR_TOKEN=$SM_SONAR_TOKEN
+      - export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
+      - curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip
+      - unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+      - export PATH=$SONAR_SCANNER_HOME/bin:$PATH
+      - export SONAR_SCANNER_OPTS="-server"
+  pre_build:
+    commands:
+      - echo Build started on `date`
+      - sonar-scanner -Dsonar.organization=manticore -Dsonar.projectKey=manticore-app-fe -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io
+      - echo Installing source NPM dependencies...
+      - yarn install
+
+  build:
+    commands:
+      - ls $CODEBUILD_SRC_DIR_source1
+      - ls
+      - echo Build started on `date`
+      - yarn build:dev
+      - yarn build:qa
+      - yarn build:prod
+      - ls $CODEBUILD_SRC_DIR_source1
+      - pwd
+      - ls .
+      - ls out/ 
+
+artifacts:
+  base-directory: $CODEBUILD_SRC_DIR_source1
+  files:
+    - '**/*'
+  discard-paths: no
+
+  secondary-artifacts:
+    manticore_app_fe_build_dev_output:
+      base-directory: ./out/dev/
+      files:
+        - '**/*'
+      discard-paths: no
+      name: manticore_app_fe_build_dev_output
+    manticore_app_fe_build_qa_output:
+      base-directory: ./out/qa/
+      files:
+        - '**/*'
+      discard-paths: no
+      name: manticore_app_fe_build_qa_output
+    manticore_app_fe_build_prod_output:
+      base-directory: ./out/prod/
+      files:
+        - '**/*'
+      discard-paths: no
+      name: manticore_app_fe_build_prod_output

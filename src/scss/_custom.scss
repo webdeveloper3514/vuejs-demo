@@ -1,0 +1,208 @@
+:root{
+  --el-loading-spinner-size :25px !important;
+}
+td {
+  vertical-align: middle;
+}
+
+.comm-tbl {
+  min-height: calc(100vh - 290px);
+}
+
+.h-100vh {
+  min-height: 100vh;
+}
+
+.img_cover{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.top-50 {
+  top: 50%;
+}
+
+.inset-0 {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.border-right-trans {
+  border-right: 1px solid rgba(255, 255, 255, .3);
+}
+
+.border-top-trans {
+  border-top: 1px solid rgba(255, 255, 255, .3);
+}
+
+.border-left-trans {
+  border-left: 1px solid rgba(255, 255, 255, .3);
+}
+
+.border-bottom-trans {
+  border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+
+.border-trans {
+  border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.dropdown-item.router-link-active {
+	background-color: var(--bs-dropdown-link-hover-bg);
+  color: var(--bs-dropdown-link-hover-color);
+}
+
+.el-loading-spinner svg .path {
+	stroke: var(--bs-theme);
+}
+
+.el-loading-spinner{
+  svg {
+    .path {
+      stroke: var(--bs-border-color);
+    }
+  }
+}
+
+
+// START HIDE ARROW FRON INPUT TYPE NUMBER
+.hide_arrow::-webkit-outer-spin-button,
+.hide_arrow::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[disabled] {
+  cursor: no-drop;
+}
+
+.hide_arrow[type=number] {
+  -moz-appearance: textfield;
+}
+
+// END HIDE ARROW FRON INPUT TYPE NUMBER
+
+.search-field {
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    right: 0;
+    height: 100%;
+  }
+
+  input {
+    padding-right: 45px;
+  }
+}
+
+.dis-non {
+  display: none !important;
+}
+
+.recommended_box {
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.el-input__wrapper,.el-textarea__inner {
+  background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+  min-height: calc(1.5em + 1rem + 2px) !important;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+  --bs-bg-opacity: 0.05 !important;
+  background-clip: padding-box !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  appearance: none !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+  box-shadow: none !important;
+  padding: 0px !important;
+}
+
+.el-input__suffix-inner {
+  pointer-events: all;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  background: transparent;
+}
+
+.el-form-item__label {
+  color: inherit !important;
+}
+
+.el-form--default.el-form--label-top .el-form-item .el-form-item__label {
+  margin-bottom: 0.5rem !important;
+  line-height: 21px !important;
+}
+
+.forgot-password-link{
+  right: 0px;
+  position: absolute;
+}
+
+.el-checkbox__inner {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: inherit !important;
+}
+.el-input__inner,.el-textarea__inner {
+  color: rgba(255, 255, 255, 0.75) !important;
+  padding: 0 11px !important;
+  border-radius: 8px !important;
+}
+
+.el-form-item.is-error .el-input__wrapper {
+  box-shadow: 0 0 0 1px var(--el-color-danger) inset !important;
+}
+
+.el-input {
+  --el-input-height: 42px !important;
+}
+
+.el-loading-mask{
+  background-color: transparent !important;
+}
+
+.el-switch__label{
+  color: inherit !important;
+}
+
+.el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before {
+  content: "" !important;
+  margin-right: 0px !important;
+}
+
+.el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label-wrap>.el-form-item__label:after, .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:after {
+  content: "*" !important;
+  margin-left: 4px !important;
+  color: rgb(255, 96, 96) !important;
+}
+
+
+.el-form-item__content{
+  line-height: inherit !important;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.toasts-container{
+  z-index: 10 !important;
+}
+
+.menu .has-sub a.menu-link{
+  cursor: pointer;
+}
+
+.dashboard-statistics-card:hover, .dashboard-statistics-card:focus {
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, .25);
+}
+
